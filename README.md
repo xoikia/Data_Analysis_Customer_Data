@@ -8,4 +8,6 @@ Visitor Log Data – It is a browsing log data of all the visitors and the users
 
 Now based on the above two tables, you need to create an input feature set for the Marketing Model.
 
+![Table2](Table2.png)
+
 
