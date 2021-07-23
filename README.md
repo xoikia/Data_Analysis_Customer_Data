@@ -22,7 +22,7 @@ Now for missing values in the Country, I found some of the entries has the city 
 To fill the missing values in the country , I have used three different steps:
 Some of the users have accesed the site from more than one country. So in order to fill the missing values of the Country.
 
-There are two different approach:
+#### There are three different approach:
 
 1.For users which have ordered only from one single country ,we just need to map its userid to a dictionary which contain userid as key and its country name from which it has given maximum order as  value, It will give its country name.It won't matter if the city column is missing or not for users who have ordered from a single country.
 
@@ -36,6 +36,7 @@ After completing the above three steps if any rows has Country data missing we w
 
 ## Filling missing values of City
 I have created a nested dictionary from the above dataframe where UserID is the main key and City name as the key of nested dictionary and the name of the Country as the value
-The format of the dictionary will be  ### {'UserID':{'Country':'City'}}
+The format of the dictionary will be  
+######## {'UserID':{'Country':'City'}}
 
 
