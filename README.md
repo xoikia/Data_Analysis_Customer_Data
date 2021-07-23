@@ -11,21 +11,7 @@ Now based on the above two tables, you need to create an input feature set for t
 ![Table2](Table2.png)
 
 Merging both the above datasets two create a userdatabase on the UserID column, 
-|UserID       |         0|
-|Signup Date  |         0|
-|User Segment |         0|
-|Reg_date     |         0|
-|Reg_time     |         0|
-|webClientID  |         0|
-|VisitDateTime|    123554|
-|ProductID    |     51963|
-|Activity     |     87757|
-|Browser      |         0|
-|OS           |         0|
-|City         |    236124|
-|Country      |     42827|
-|Visit_Date   |    123554|
-|Visit_Time   |    123554|
+![Table3](Table3.png)
 
 After merging I found that VisitDate has lots of missing values, The missing values of VisitDateTime columns cannot be filled so we are dropping the rows which have missing VisitDateTime entries
 
