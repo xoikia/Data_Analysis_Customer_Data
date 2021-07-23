@@ -118,4 +118,44 @@ df.drop_duplicates(subset='UserID',inplace=True,ignore_index=True)
 df.sort_values(by=['UserID'],ascending=True,inplace=True,ignore_index=True)
 
 ```
+Created a dataframe which stores the unique UserId and it sfreqeunt choice of Operating System and another one which stores user segment of each user id
+```
+id_os=userdb_history.groupby('UserID')['OS'].value_counts().groupby(level=0).head(1).to_frame(name='Count').reset_index()[['UserID','OS']]
+user_segment=userdb_history.groupby('UserID')['User Segment'].value_counts().to_frame(name='Count').reset_index()[['UserID','User Segment']]
+```
+The next step is to create the database which stores the date the registered date of each user and with the help of this I will create the vintage of each users.
+```
+v=userdb_history[['UserID','Reg_date']].drop_duplicates()
+ctdate=userdb_history.Visit_Date.max()
+v['Vintage(days)']=v['Reg_date'].apply(lambda x: (ctdate-x).days)
+v.drop(labels='Reg_date',axis=1,inplace=True)
+```
+The next step is to create dataframes which stores numnber of time the userid was active on last seven days, the total number of clicks on last 7 days by each user , the total pageload in the last 7 days for each user and stores the recently viewed productid for each user.
+```
+active=lastseven.groupby('UserID')['Visit_Date'].nunique().to_frame(name='Days_active_on_last_7Days').reset_index()
+click=lastseven[lastseven.Activity=='CLICK'].groupby('UserID')['Activity'].value_counts().to_frame(name='Clicks_last_7_days').reset_index()[['UserID','Clicks_last_7_days']]
+pload=lastseven[lastseven.Activity=='PAGELOAD'].groupby('UserID'['Activity'].value_counts().to_frame(name='Pageload_last_7_days').reset_index([['UserID','Pageload_last_7_days']]
+recent=userdb_history[userdb_history.Activity=='PAGELOAD'].groupby(['UserID','ProductID'])['Visit_Date','Visit_Time'].max().groupby(level=0).head(1).reset_index()
+recent.drop(labels=['Visit_Date','Visit_Time'],inplace=True,axis=1)
+recent.columns=['UserID','Recently_Viewed_Product']
+```
+The next step is to merge all the dataframes created above one by one.
+Merging id_os dataframe with v dataframe and assigning to a varibale df1
+```df1=id_os.merge(user_segment,on='UserID',how='outer')```
+Merging id_os dataframe with v dataframe and assigning to a varibale df1
+```df2=df1.merge(v,on='UserID',how='outer')```
+Merging df1 dataframe with active dataframe and assigning to a varibale df2
+```df3=df2.merge(active,on='UserID',how='outer')```
+Merging df2 dataframe with click dataframe and assigning to a varibale df3
+```df4=df3.merge(click,on='UserID',how='outer')```
+Merging df3 dataframe with pload dataframe and assigning to a varibale df4
+```df5=df4.merge(pload,on='UserID',how='outer')```
+Merging df4 dataframe with active dataframe and assigning to a varibale data7
+```data7=df5.merge(recent,on='UserID',how='outer')```
+Filling missing values in Recently_Viewed_Product with Product101
+```data7['Recently_Viewed_Product'].fillna(value='Product101',inplace=True)```
+Merging the data7 and data15 dataframe to assigning to a varibale feature_table
+```feature_table=pd.merge(data7,data15,how='outer',on='UserID')
+feature_table.fillna(value=0,inplace=True)```
 
+The feature_table contains all the necessary features which were required.
