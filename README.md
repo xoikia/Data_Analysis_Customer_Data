@@ -1,8 +1,7 @@
 # Data_Analysis_Customer_Data
 The main aim of the project is to Develop input features. I have used two datasets the Visitor log data and User Data. The datasets can be downloaded from [here](https://datahack.analyticsvidhya.com/contest/job-a-thon-june-2021/download/train-file)
+
 Visitor Log Data – It is a browsing log data of all the visitors and the users. This table contains the following information:
-
-
 
 ![Screenshot](Table1.png)
 
@@ -175,3 +174,4 @@ feature_table.fillna(value=0,inplace=True)
 ```
 
 The feature_table contains all the necessary features which were required.
+The above feature table can be created using the ETL pipeline. One just need to pass the dataframes only and the feature table will be created.
