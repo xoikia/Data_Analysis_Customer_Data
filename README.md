@@ -142,20 +142,29 @@ recent.columns=['UserID','Recently_Viewed_Product']
 The next step is to merge all the dataframes created above one by one.
 Merging id_os dataframe with v dataframe and assigning to a varibale df1
 ```df1=id_os.merge(user_segment,on='UserID',how='outer')```
+
 Merging id_os dataframe with v dataframe and assigning to a varibale df1
 ```df2=df1.merge(v,on='UserID',how='outer')```
+
 Merging df1 dataframe with active dataframe and assigning to a varibale df2
 ```df3=df2.merge(active,on='UserID',how='outer')```
+
 Merging df2 dataframe with click dataframe and assigning to a varibale df3
 ```df4=df3.merge(click,on='UserID',how='outer')```
+
 Merging df3 dataframe with pload dataframe and assigning to a varibale df4
 ```df5=df4.merge(pload,on='UserID',how='outer')```
+
 Merging df4 dataframe with active dataframe and assigning to a varibale data7
 ```data7=df5.merge(recent,on='UserID',how='outer')```
+
 Filling missing values in Recently_Viewed_Product with Product101
 ```data7['Recently_Viewed_Product'].fillna(value='Product101',inplace=True)```
+
 Merging the data7 and data15 dataframe to assigning to a varibale feature_table
-```feature_table=pd.merge(data7,data15,how='outer',on='UserID')
-feature_table.fillna(value=0,inplace=True)```
+```
+feature_table=pd.merge(data7,data15,how='outer',on='UserID')
+feature_table.fillna(value=0,inplace=True)
+```
 
 The feature_table contains all the necessary features which were required.
