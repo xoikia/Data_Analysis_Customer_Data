@@ -17,6 +17,9 @@ Merging both the above datasets on the UserID column, to create a userdatabase
 After merging I found that VisitDate has lots of missing values, The missing values of VisitDateTime columns cannot be filled so we are dropping the rows which have missing VisitDateTime entries
 
 ## Filling missing values in Country columns
+While inspecting I found that lot of Country columns has empty strings, So I converted it into NaN values so that it becomes easy to filter out them and fill those values.
+
+
 Now for missing values in the Country, I found some of the entries has the city name attached along with the country name in the Country columns,We need to separate the city from the country name. For this I have created a list of countries available in the world using pycountry module. After that I have created a function which will iterate throuugh every rows in the dataframe and with the help of regularexpression's findall method it will find the name is availble in our list created and if it finds  the name of the Country of the user in the Country list created, It will replace the country name those have city name attached with the actual country name. 
 
 To fill the missing values in the country , I have used three different steps:
