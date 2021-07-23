@@ -17,7 +17,7 @@ Merging both the above datasets on the UserID column, to create a userdatabase
 
 After merging I found that VisitDate has lots of missing values, The missing values of VisitDateTime columns cannot be filled so we are dropping the rows which have missing VisitDateTime entries
 
-## Filling missing values in Country columns
+### Filling missing values in Country columns
 While inspecting I found that lot of Country columns has empty strings, So I converted it into NaN values so that it becomes easy to filter out them and fill those values.
 
 ![Missingvalues](Miss1.png)
@@ -43,7 +43,7 @@ Some of the users have accesed the site from more than one country. So in order 
 After completing the above three steps most of the missing values have been filled but still some of the entries have missing data so I deleted those entries.
 
 
-## Filling missing values of City
+### Filling missing values of City
 
 ![Missingvalues](Miss3.png)
 
@@ -60,7 +60,7 @@ The remaining missing entries have no city value in the above dictionary for the
 
 
 
-## Filling the missing values ProductID
+### Filling the missing values ProductID
 
 I created a nested dictionary from the dataframe where UserID is the main key and Visit_Date  as the key of nested dictionary and the name of the most viewed ProductID as the value. The format of the dictionary will be {'UserID':{'City':'Country'}}.
 I Iterate through all the rows and filled the missing values by checking whether the UserID is in the dictionary keys or not and if it is present ,it will check whether the VisitDate is in it or not .if found we will fill the missing values with those  values of the key  and if missing values still exist I dropped those entries.
@@ -69,7 +69,7 @@ I Iterate through all the rows and filled the missing values by checking whether
 
 The remaining missing values in the Activity column will be dropped.
 
-## Filling the missing values in Activity
+### Filling the missing values in Activity
 
 In order to fill the missing values in the activity column I will use two separate ways
 First way
@@ -83,6 +83,11 @@ The missing numbers in Activity column has dropped to 35121 from 54981. The rema
 Creating another dictionary from the dataframe where UserID is the key and the Activity is the value, This dictionary holds the most frequent activity of the user. Iterating through every rows in the database and checking whether the Activity column has  missing value or not, if yes it will check whether the userid of the particular entry is in.
 
 ![Missingvalues](Miss8.png)
+
+The remaining missing values will be deleted
+
+
+![Missingvalues](Miss9.png)
 
 ## Process to create Input Feature:
 
