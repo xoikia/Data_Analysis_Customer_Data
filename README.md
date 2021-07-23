@@ -59,11 +59,15 @@ The remaining missing entries have no city value in the above dictionary for the
 
 
 
-## Filling the missing ProductID
-
-![Missingvalues](Miss6.png)
+## Filling the missing values ProductID
 
 I created a nested dictionary from the dataframe where UserID is the main key and Visit_Date  as the key of nested dictionary and the name of the most viewed ProductID as the value. The format of the dictionary will be {'UserID':{'City':'Country'}}.
 I Iterate through all the rows and filled the missing values by checking whether the UserID is in the dictionary keys or not and if it is present ,it will check whether the VisitDate is in it or not .if found we will fill the missing values with those  values of the key  and if missing values still exist I dropped those entries.
+
+![Missingvalues](Miss6.png)
+
+## Filling the missing values in Activity
+
+
 
 
