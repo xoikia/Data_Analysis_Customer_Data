@@ -68,7 +68,17 @@ I Iterate through all the rows and filled the missing values by checking whether
 
 ## Filling the missing values in Activity
 
+In order to fill the missing values in the activity column I will use two separate ways
+First way
 Created a dictionary from the data frame where the UserID is the main key and the Visit_Date ,ProductID are the keys of the two  nested keys respectively. The format will be {UserID:{Visit_Dat:{ProdcutID:Activity}}}
+The idea is to check first whether the UserID on the given Visit_Date has previous activity on  that ProductID or not .If any data relating to it is found we fill the missing values with those data i.e either CLICK or PAGELOAD
+
+![Missingvalues](Miss.png)
+
+The missing numbers in Activity column has dropped to 35121 from 54981. The remaining missing values can be filled in the next way
+
+Creating another dictionary from the dataframe where UserID is the key and the Activity is the value, This dictionary holds the most frequent activity of the user. Iterating through every rows in the database and checking whether the Activity column has  missing value or not, if yes
+it will check whether the userid of the particular entry is in
 
 
 
