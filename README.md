@@ -87,7 +87,35 @@ Creating another dictionary from the dataframe where UserID is the key and the A
 The remaining missing values will be deleted
 
 
-![Missingvalues](Miss9.png)
+ ![Missingvalues](Miss9.png)
+
+Now there is no missing values in our dataframe, and we can proceed to create the Input Features.
 
 ## Process to create Input Feature:
+
+First I have created two separate dataframe of the last 7 days and 15 days and another dataframe which stores the total nummber of Products viewed by the user in the last 15 days.
+```
+lastseven=userdb_history[(dt.date(2018,5,27)-userdb_history['Visit_Date'])<=dt.timedelta(6)]
+
+lastfifteen=userdb_history[(dt.date(2018,5,27)-userdb_history['Visit_Date'])<=dt.timedelta(14)]
+
+otalproductsview=lastfifteen.groupby('UserID')['ProductID'].nunique().to_frame(name='No_Of_Products_Viewed_15Days').reset_index()
+```
+
+Created  two another dataframe which stores the most recently  viewed(Pageload) product by the user in last 15 day  and another which stores the ProductID which is most viewed by a particular user in the last 15 days respectively
+```
+recent15=lastfifteen[lastfifteen.Activity=='PAGELOAD'].groupby(['UserID','ProductID'])['Visit_Date','Visit_Time'].max().reset_index()
+
+MviewPrdct=lastfifteen[lastfifteen.Activity=='PAGELOAD'].groupby('UserID')['ProductID'].value_counts().to_frame(name='Most_Viewed_Product_15Days').reset_index()
+                                                                                       
+```
+After that merging Most recently viewed product dataframe and the most viewed product dataframe and storing in anoter variable df, sorting the above dataframe in ascending order and deleting the duplicates row
+
+```
+df=pd.merge(recent15,MviewPrdct,how='inner',on=['UserID','ProductID'])
+df.sort_values(by=['UserID','Most_Viewed_Product_15Days','Visit_Date','Visit_Time'],inplace=True,ascending=False)
+df.drop_duplicates(subset='UserID',inplace=True,ignore_index=True)
+df.sort_values(by=['UserID'],ascending=True,inplace=True,ignore_index=True)
+
+```
 
