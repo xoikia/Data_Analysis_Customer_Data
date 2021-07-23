@@ -46,7 +46,7 @@ After completing the above three steps most of the missing values have been fill
 
 ![Missingvalues](Miss3.png)
 
-I have created a nested dictionary from the above dataframe where UserID is the main key and City name as the key of nested dictionary and the name of the Country as the value
+I have created a nested dictionary from the  dataframe where UserID is the main key and City name as the key of nested dictionary and the name of the Country as the value
 The format of the dictionary will be   {'UserID':{'Country':'City'}}
 
 After that I iterate through all the rows and fill the missing values by checking whether the UserID is in the dictionary keys or not and if it is present ,it will check whether the User has any country associated with it or not .if any country is found it willfill the missing place with value of the country key.
@@ -67,6 +67,8 @@ I Iterate through all the rows and filled the missing values by checking whether
 ![Missingvalues](Miss6.png)
 
 ## Filling the missing values in Activity
+
+Created a dictionary from the data frame where the UserID is the main key and the Visit_Date ,ProductID are the keys of the two  nested keys respectively. The format will be {UserID:{Visit_Dat:{ProdcutID:Activity}}}
 
 
 
