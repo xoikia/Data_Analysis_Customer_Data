@@ -19,7 +19,7 @@ After merging I found that VisitDate has lots of missing values, The missing val
 ## Filling missing values in Country columns
 While inspecting I found that lot of Country columns has empty strings, So I converted it into NaN values so that it becomes easy to filter out them and fill those values.
 
-![Missingvalues][Miss1.png]
+![Missingvalues](Miss1.png)
 
 
 Now for missing values in the Country, I found some of the entries has the city name attached along with the country name in the Country columns,We need to separate the city from the country name. For this I have created a list of countries available in the world using pycountry module. After that I have created a function which will iterate throuugh every rows in the dataframe and with the help of regularexpression's findall method it will find the name is availble in our list created and if it finds  the name of the Country of the user in the Country list created, It will replace the country name those have city name attached with the actual country name. 
@@ -37,12 +37,15 @@ Some of the users have accesed the site from more than one country. So in order 
 3.But the above process will not work for users who have ordered from more than 1 country and whose city value is not missing .Suppose a user has ordered from India and USA. If for a particular entry if the city name is given as NewYork and we found that the user has ordered maximum number of times from India. We will fill the country name with wrong value.It should be USA. For such cases we have to map both the userid and  city to get the country name.
 
 
-![Missingvalues][Miss2.png]
+![Missingvalues](Miss2.png)
 
 After completing the above three steps most of the missing values have been filled but still some of the entries have missing data so I deleted those entries.
 
 
 ## Filling missing values of City
+
+![Missingvalues](Miss3.png)
+
 I have created a nested dictionary from the above dataframe where UserID is the main key and City name as the key of nested dictionary and the name of the Country as the value
 The format of the dictionary will be   {'UserID':{'Country':'City'}}
 
