@@ -6,20 +6,6 @@ Visitor Log Data – It is a browsing log data of all the visitors and the users
 
 ![Screenshot](Table1.png)
 
-| Feature        |Description                                                                                                             |
-| ------------- |:-----------------------------------------------------------------------------------------------------------------------:|
-| WebClientID   |Unique ID of browser for every system. (If a visitor is using multiple browsers on a system like Chrome, Safari, then    |
-|               | there would be a different web clientid for each browser). The ID remains consistent unless the user clears theircookie.|
-| VisitDateTime | Date and time of visit. There are two different formats for DateTime. One is in datetime format 2018-05-07 04:28:45.970 |
-|               |Another one is in unix datetime format 1527051855673000000                                                               |
-| ProductID     | Unique ID of product browsed/ clicked by the visitor                                                                    |
-|               |Another one is in unix datetime format 1527051855673000000                                                               ||               | Date and time of visit. There are two different formats for DateTime. One is in datetime format 2018-05-07 04:28:45.970 |
-|               |Another one is in unix datetime format 1527051855673000000                                                               ||               | Date and time of visit. There are two different formats for DateTime. One is in datetime format 2018-05-07 04:28:45.970 |
-|               |Another one is in unix datetime format 1527051855673000000                                                               ||               | Date and time of visit. There are two different formats for DateTime. One is in datetime format 2018-05-07 04:28:45.970 |
-|               |Another one is in unix datetime format 1527051855673000000                                                               ||               | Date and time of visit. There are two different formats for DateTime. One is in datetime format 2018-05-07 04:28:45.970 |
-|               |Another one is in unix datetime format 1527051855673000000                                                               ||               | Date and time of visit. There are two different formats for DateTime. One is in datetime format 2018-05-07 04:28:45.970 |
-|               |Another one is in unix datetime format 1527051855673000000                                                               ||               | Date and time of visit. There are two different formats for DateTime. One is in datetime format 2018-05-07 04:28:45.970 |
-|               |Another one is in unix datetime format 1527051855673000000                                                               ||               | Date and time of visit. There are two different formats for DateTime. One is in datetime format 2018-05-07 04:28:45.970 |
-|               |Another one is in unix datetime format 1527051855673000000                                                               ||               | Date and time of visit. There are two different formats for DateTime. One is in datetime format 2018-05-07 04:28:45.970 |
-|               |Another one is in unix datetime format 1527051855673000000                                                               ||               | Date and time of visit. There are two different formats for DateTime. One is in datetime format 2018-05-07 04:28:45.970 |
-|               |Another one is in unix datetime format 1527051855673000000                                                               |
+Now based on the above two tables, you need to create an input feature set for the Marketing Model.
+
+
