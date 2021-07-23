@@ -3,6 +3,9 @@ The main aim of the project is to Develop input features. I have used two datase
 Visitor Log Data – It is a browsing log data of all the visitors and the users. This table contains the following information:
 
 
+
+![Screenshot](Table1.png)
+
 | Feature        |Description                                                                                                             |
 | ------------- |:-----------------------------------------------------------------------------------------------------------------------:|
 | WebClientID   |Unique ID of browser for every system. (If a visitor is using multiple browsers on a system like Chrome, Safari, then    |
