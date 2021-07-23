@@ -10,6 +10,7 @@ Now based on the above two tables, you need to create an input feature set for t
 
 ![Table2](Table2.png)
 
+## Data Cleaning and Preprocessing
 Merging both the above datasets on the UserID column, to create a userdatabase  
 
 ![Table3](Table3.png)
@@ -66,6 +67,8 @@ I Iterate through all the rows and filled the missing values by checking whether
 
 ![Missingvalues](Miss6.png)
 
+The remaining missing values in the Activity column will be dropped.
+
 ## Filling the missing values in Activity
 
 In order to fill the missing values in the activity column I will use two separate ways
@@ -81,6 +84,5 @@ Creating another dictionary from the dataframe where UserID is the key and the A
 
 ![Missingvalues](Miss8.png)
 
-
-
+## Process to create Input Feature:
 
